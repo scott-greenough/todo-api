@@ -1,6 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var _ = require('underscore');
+var https = require('https');
+var request = require('request');
 var shippo = require('shippo')('b03100a514fd207e0862b2206bc55d0fc396c99b');
 
 var app = express();
