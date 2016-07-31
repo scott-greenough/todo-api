@@ -10,7 +10,7 @@ var todoNextId = 1;
 app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
-	res.send('TODO API Root');
+	res.send('TODO API Root testing update');
 });
 
 //GET request /todos
@@ -55,7 +55,7 @@ app.post('/todos', function (req, res) {
 
 // DELETE /todos/:id
 app.delete('/todos/:id', function (req, res) {
-	console.log('calling delete for parameter ' + parseInt(req.params.id, 10));
+	console.log('calling the delete method for parameter ' + parseInt(req.params.id, 10));
 
 	var todoId = parseInt(req.params.id, 10);
 
