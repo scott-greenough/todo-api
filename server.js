@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var _ = require('underscore');
+var shippo = require('shippo')('b03100a514fd207e0862b2206bc55d0fc396c99b');
 
 var app = express();
 var PORT = process.env.PORT || 3000
@@ -11,6 +12,24 @@ app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
 	res.send('TODO API Root testing update');
+});
+
+
+//GET /todos/:id
+app.get('/fedex/:id', function (req, res) {
+    request('https://api.goshippo.com/v1/tracks/fedex/' +  req.params.id, function(error, response, body){
+        if (!error && response.statusCode == 200){
+            var temp = JSON.parse(body);
+
+            var status = {
+                carrier: temp.carrier,
+                date: temp.tracking_status.status_date,
+                details: temp.tracking_status.status_details
+            }
+
+            res.json(status);
+        }
+    });
 });
 
 //GET request /todos
