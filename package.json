@@ -12,6 +12,7 @@
     "body-parser": "^1.13.3",
     "express": "^4.13.3",
     "underscore": "^1.8.3",
-    "shippo": "1.0.2"
+    "shippo": "^1.4.28",
+    "when": "^1.4.28"
   }
 }
